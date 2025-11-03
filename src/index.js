@@ -24,7 +24,7 @@ client.on(Events.MessageCreate, async (message) => {
 
   // !verify
   if (content === "!verify") {
-    const roleName = process.env.VERIFIED_ROLE_NAME!;
+    const roleName = process.env.VERIFIED_ROLE_NAME;
     const role = message.guild.roles.cache.find((r) => r.name === roleName);
 
     if (!role) {
