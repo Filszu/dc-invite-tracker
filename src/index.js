@@ -53,7 +53,7 @@ client.on(Events.MessageCreate, async (message) => {
       (role) => role.name === "free_access_LVL2"
     );
 
-    totalInvites = 3; // TEMP
+    totalInvites = 2; // TEMP
     if (totalInvites >= 7 && !hasLvl2) {
       const lvl2Role = message.guild.roles.cache.find(
         (r) => r.name === "free_access_LVL2"
