@@ -68,7 +68,7 @@ client.on(Events.MessageCreate, async (message) => {
           {
             method: "GET",
             headers: {
-              Authorization: "filszuMaster771177",
+              Authorization: process.env.API_AUTHCODE,
             },
           }
         );
