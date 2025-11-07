@@ -1,0 +1,1 @@
+node "c:\Users\filip\Documents\coding\my_projects\bots\discord_invite_tracker\src\index.js"

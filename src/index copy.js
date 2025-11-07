@@ -1,20 +1,8 @@
 // npx ts-node src/index.ts
 import { Client, GatewayIntentBits, Events } from "discord.js";
 import * as dotenv from "dotenv";
-import http from "http";
 
 dotenv.config();
-
-// Add HTTP server
-const server = http.createServer((req, res) => {
-  res.writeHead(200);
-  res.end("Discord bot is running!");
-});
-
-const port = process.env.PORT || 3000;
-server.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
 
 const client = new Client({
   intents: [
