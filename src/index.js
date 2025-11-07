@@ -53,7 +53,7 @@ client.on(Events.MessageCreate, async (message) => {
       (role) => role.name === "free_access_LVL2"
     );
 
-    totalInvites = 3; // TEMP
+    totalInvites += 3; // TEMP
     if (totalInvites >= 7 && !hasLvl2) {
       const lvl2Role = message.guild.roles.cache.find(
         (r) => r.name === "free_access_LVL2"
@@ -64,13 +64,7 @@ client.on(Events.MessageCreate, async (message) => {
 
       try {
         const response = await fetch(
-          `${process.env.WEB_URL}/api/code?level=2&unused=true`,
-          {
-            method: "GET",
-            headers: {
-              Authorization: process.env.API_AUTHCODE,
-            },
-          }
+          `${process.env.WEB_URL}/api/code?level=2&unused=true&apiKey=${process.env.API_AUTHCODE}`
         );
 
         const data = await response.json();
