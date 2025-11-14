@@ -27,6 +27,25 @@ const client = new Client({
 
 client.once(Events.ClientReady, () => {
   console.log(`Logged in as ${client.user?.tag}`);
+
+  // every 45 seconds log "Bot is running" and optionally send to a channel
+  setInterval(async () => {
+    const text = "Bot is running";
+    console.log(text);
+
+    const channelId = process.env.STATUS_CHANNEL_ID;
+    if (!channelId) return;
+
+    try {
+      const channel = await client.channels.fetch(channelId);
+      if (channel && typeof channel.send === "function") {
+        // send message to the configured channel (if available)
+        channel.send(text).catch(() => {});
+      }
+    } catch {
+      // ignore fetch/send errors
+    }
+  }, 45_000);
 });
 
 client.on(Events.MessageCreate, async (message) => {
